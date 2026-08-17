@@ -1,0 +1,126 @@
+:root {
+    --background: #12101A;
+    --surface: #1D1926;
+    --surface-light: #292331;
+
+    --primary: #6A498E;
+    --primary-light: #A88CC7;   
+
+    --text: #F4F0F7;
+    --muted: #AAA1B5;
+
+    --border: #3A3145;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: radial-gradient(circle at 50% 35%, rgba(106, 73, 142, 0.18), transparent 45%), var(--background);
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+}
+
+main {
+    width: min(900px, 100%);
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: 90px;
+    letter-spacing: -3px;
+}
+
+p {
+    color: var(--muted);
+    font-size: 18px;
+}
+
+#greeting {
+    margin-bottom: 12px;
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.focus-card {
+    margin-top: 35px;
+    padding: 28px;
+
+    border: 1px solid var(--border);
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    text-align: left;
+}
+
+.card-label {
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.focus-card h2 {
+    margin: 12px 0 8px;
+
+    color: var(--text);
+
+    font-size: 24px;
+}
+
+.focus-description {
+    margin: 0;
+
+    color: var(--muted);
+    font-size: 15px;
+}
+
+.focus-input {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.focus-input input {
+    flex: 1;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+    background: var(--background);
+    color: var(--text);
+    font-size: 15px;
+}
+
+.focus-input input::placeholder {
+    color: var(--muted);
+}
+
+.focus-input input:focus {
+    border-color: var(--primary);
+}
+
+.focus-input button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    background: var(--primary);
+    color: var(--text);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.focus-input button:hover {
+    background: var(--primary-light);
+}
