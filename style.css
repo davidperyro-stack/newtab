@@ -1,15 +1,17 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
-    --background: #12101A;
-    --surface: #1D1926;
-    --surface-light: #292331;
-
-    --primary: #6A498E;
-    --primary-light: #A88CC7;   
-
-    --text: #F4F0F7;
-    --muted: #AAA1B5;
-
-    --border: #3A3145;
+    --background: #0f0d15;
+    --surface: rgba(38, 31, 47, 0.92);
+    --surface-soft: rgba(60, 48, 71, 0.8);
+    --primary: #b886d9;
+    --primary-dark: #7f5ea3;
+    --primary-soft: #a77bd0;
+    --text: #f5f1fa;
+    --muted: #b5a7c4;
+    --border: rgba(197, 175, 219, 0.2);
 }
 
 body {
@@ -20,7 +22,9 @@ body {
     align-items: center;
     justify-content: center;
 
-    background: radial-gradient(circle at 50% 35%, rgba(106, 73, 142, 0.18), transparent 45%), var(--background);
+    background:
+        radial-gradient(circle at 50% 35%, color-mix(in srgb, var(--primary-soft) 18%, transparent), transparent 42%),
+        var(--background);
     color: var(--text);
 
     font-family: Arial, sans-serif;
@@ -34,9 +38,11 @@ main {
 
 h1 {
     margin: 0;
-
-    font-size: 90px;
-    letter-spacing: -3px;
+    font-size: 88px;
+    line-height: 1;
+    letter-spacing: -4px;
+    font-weight: 700;
+    color: var(--text);
 }
 
 p {
@@ -45,78 +51,369 @@ p {
 }
 
 #greeting {
-    margin-bottom: 12px;
+    margin: 0 0 12px;
     color: var(--primary);
     font-size: 14px;
     font-weight: 700;
-}
-
-.focus-card {
-    margin-top: 35px;
-    padding: 28px;
-
-    border: 1px solid var(--border);
-    border-radius: 20px;
-
-    background: var(--surface);
-
-    text-align: left;
-}
-
-.card-label {
-    color: var(--primary);
-
-    font-size: 12px;
-    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .search-bar {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    width: min(760px, 100%);
     margin: 30px auto 0;
-    width: min(650px, 100%);
 }
 
-.search-bar input {
-    flex: 1;
+.search-button {
+    flex: 0 0 220px;
+    height: 90px;
+    padding: 0 18px;
 
-    min-width: 0;
-
-    padding: 14px 18px;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    outline: none;
-
-    background: var(--surface);
+    border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+    border-radius: 18px;
+    background: linear-gradient(180deg, var(--primary-soft), var(--primary-dark));
     color: var(--text);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 3%, transparent);
 
-    font-size: 16px;
-}
-
-.search-bar input::placeholder {
-    color: var(--muted);
-}
-
-.search-bar input:focus {
-    border-color: var
-}
-
-.search-bar button {
-    padding: 0 20px;
-
-    border: none;
-    border-radius: 12px;
-
-    background: var(--primary);
-    color: var(--text);
-
+    font-size: 18px;
     font-weight: 700;
-
     cursor: pointer;
 }
 
-.search-bar button:hover {
-    background: var(--primary-light);
+.search-button:hover {
+    background: linear-gradient(180deg, var(--primary), var(--primary-soft));
+}
+
+.search-bar input {
+    flex: 1 1 300px;
+    min-width: 220px;
+    height: 90px;
+    padding: 0 18px;
+
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--text) 2%, transparent);
+
+    font-size: 18px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 1;
+    display: block;
+    cursor: text;
+}
+
+.search-bar input::placeholder {
+    color: color-mix(in srgb, var(--text) 70%, transparent);
+    opacity: 1;
+}
+
+.search-bar input:focus {
+    border-color: color-mix(in srgb, var(--text) 28%, transparent);
+    box-shadow:
+        0 0 0 2px color-mix(in srgb, var(--primary) 20%, transparent),
+        inset 0 0 0 1px color-mix(in srgb, var(--text) 4%, transparent);
+}
+
+.quote-card {
+    width: min(600px, 100%);
+    margin: 40px auto 100px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    text-align: center;
+}
+
+.quote-label {
+    margin: 0 0 12px;
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+#quote {
+    margin: 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 26px;
+    line-height: 1.5;
+    font-style: italic;
+    transition: opacity 0.2s ease;
+}
+
+#quote.loading {
+    opacity: 0.5;
+}
+
+#newQuoteButton {
+    margin-top: 18px;
+    padding: 9px 15px;
+    border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+#newQuoteButton:hover {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+}
+
+#newQuoteButton:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+#newQuoteButton:focus-visible,
+.search-bar input:focus-visible {
+    outline: 2px solid color-mix(in srgb, var(--primary) 70%, transparent);
+    outline-offset: 2px;
+}
+
+.bookmarks {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    background: color-mix(in srgb, var(--surface) 92%, transparent);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.bookmark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    width: 56px;
+    padding: 6px 4px;
+
+    border: none;
+    border-radius: 14px;
+    background: transparent;
+
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 12px;
+
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.bookmark:hover {
+    background: color-mix(in srgb, var(--primary) 15%, transparent);
+    border-radius: 10px;
+    color: var(--text);
+}
+
+.bookmark img {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+}
+
+.bookmark span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+#weather {
+    margin: 0 0 12px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.bookmark-area {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.bookmark-area .bookmarks {
+    position: static;
+    transform: none;
+}
+
+#addBookmarkButton {
+    padding: 7px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#addBookmarkButton:hover {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+    border-color: var(--primary);
+    color: var(--text);
+}
+.site-credit {
+    position: fixed;
+    bottom: 16px;
+    right: 20px;
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.site-credit:hover {
+    color: var(--primary);
+}
+
+.bookmark-wrapper {
+    position: relative;
+}
+
+.bookmark-delete {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    width: 18px;
+    height: 18px;
+    padding: 0;
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-dark);
+    color: var(--text);
+
+    font-size: 12px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.bookmark-wrapper:hover .bookmark-delete {
+    display: flex;
+}
+
+.bookmark-delete:hover {
+    background: var(--primary);
+}
+
+.apod-card {
+    width: min(420px, 100%);
+    margin: 30px auto 100px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface);
+    text-align: center;
+    display: none;
+}
+
+.apod-card.visible {
+    display: block;
+}
+
+.apod-card img {
+    width: 100%;
+    max-height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+}
+
+#apodTitle {
+    margin: 12px 0 0;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.apod-card video {
+    width: 100%;
+    max-height: 260px;
+    border-radius: 12px;
+    display: none;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+
+    width: min(900px, 100%);
+    margin: 30px auto 100px;
+}
+
+.quote-card, .apod-card {
+    flex: 1 1 380px;
+    width: auto;
+    margin: 0;
+}
+
+.focus-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: var(--surface);
+    color: var(--muted);
+
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.focus-toggle:hover {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+body.focus-mode #weather,
+body.focus-mode main > p:not(#greeting),
+body.focus-mode .card-row,
+body.focus-mode .bookmark-area {
+
+    display: none !important;
 }
