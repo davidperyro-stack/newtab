@@ -20,9 +20,8 @@ HTML, CSS, and JavaScript
 
 1. Have a browser (OF COURSE YOU NEED A BROWSER!!!!!!!!!!!!!!!)
 2. (STEP 1 IS REQUIRED) open this link -->
-## APIs used
 
-## API`s used
+## APIs used
 - Open-Meteo
 - quoteslate
 - NASA APOD
