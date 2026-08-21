@@ -23,9 +23,9 @@ HTML, CSS, and JavaScript
 ## APIs used
 
 ## API`s used
--Open-Meteo
--quoteslate
--NASA APOD
+- Open-Meteo
+- quoteslate
+- NASA APOD
 
 ## AI usage declaration
 
