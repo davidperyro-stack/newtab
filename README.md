@@ -22,7 +22,7 @@ HTML, CSS, and JavaScript
 2. (STEP 1 IS REQUIRED) open this link -->
 ## APIs used
 
-| API`s used
+## API`s used
 Open-Meteo
 quoteslate
 NASA APOD
