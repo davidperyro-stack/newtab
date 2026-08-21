@@ -1,5 +1,8 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>New Tab</title>
         <link rel="stylesheet" href="style.css">
     </head>
@@ -7,25 +10,58 @@
     <body>
         <main>
             <p id="greeting">Good evening!</p>
+            <p id="weather"></p>
+            <button id="focusToggle" class="focus-toggle" type="button" title="Toggle focus mode">focus mode</button>
 
             <h1 id="clock">00:00</h1>
 
             <p>Your new tab</p>
 
-<form class="search-bar" id="searchForm">
-    <input
-        id="searchInput"
-        type="text"
-        placeholder="Search the web..."
-        autocomplete="off">
-    
+            <form class="search-bar" id="searchForm">
+                <button type="submit" class="search-button">Search</button>
+                <input
+                    id="searchInput"
+                    type="search"
+                    placeholder="Search the web..."
+                    autocomplete="off"
+                    autofocus
+                    aria-label="Search the web"
+                >
+            </form>
 
-    <button type="submit">
-        Search
-    </button>
-</form>
-</main>
+            <div class="card-row">
+                <div class="quote-card">
+                    <p class="quote-label">Quotes</p>
+
+                    <p id="quote">
+                        Small steps become big changes.
+                    </p>
+
+                    <button id="newQuoteButton" type="button">
+                        New thought
+                    </button>
+                </div>
+
+                <div class="apod-card" id="apodCard">
+                    <p class="quote-label">Astronomy Picture of the Day</p>
+                    <img id="apodImage" alt="">
+                    <video id="apodVideo" controls></video>
+                    <p id="apodTitle"></p>
+                </div>
+            </div>
+
+        </main>
+
+        <div class="bookmark-area">
+            <div class="bookmarks" id="bookmarks"></div>
+
+            <button id="addBookmarkButton" type="button">
+                + Add bookmark
+            </button>
+        </div>
 
         <script src="script.js"></script>
+
+        <a href="https://idontknowanything.vercel.app" class="site-credit" target="_blank" rel="noopener">By Perry</a>
     </body>
 </html>
