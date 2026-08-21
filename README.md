@@ -23,9 +23,9 @@ HTML, CSS, and JavaScript
 ## APIs used
 
 | API`s used
-| [Open-Meteo](https://open-meteo.com/) | Current weather | No |
-| [quoteslate](https://quoteslate.vercel.app/) | Random daily quotes | No |
-| [NASA APOD](https://api.nasa.gov/) | Astronomy Picture of the Day | Yes (free) |
+Open-Meteo
+quoteslate
+NASA APOD
 
 ## AI usage declaration
 
