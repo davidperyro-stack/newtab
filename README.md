@@ -19,7 +19,7 @@ HTML, CSS, and JavaScript
 ## Setup
 
 1. Have a browser (OF COURSE YOU NEED A BROWSER!!!!!!!!!!!!!!!)
-2. (STEP 1 IS REQUIRED) open this link -->
+2. (STEP 1 IS REQUIRED) open this link --> https://davidperyro-stack.github.io/newtab/
 
 ## APIs used
 - Open-Meteo
